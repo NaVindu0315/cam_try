@@ -1,0 +1,19 @@
+Future<void> _takePicture() async {
+  try {
+    XFile picture = await controller.takePicture();
+    final String filePath = picture.path;
+    // Save the picture to device storage or perform facial recognition
+    // Example: Save the picture to the app's directory
+    File savedImage = File(filePath);
+    // You can move the file to a different location if needed
+    // For example, using the path_provider package:
+    // final Directory appDir = await getApplicationDocumentsDirectory();
+    // final String newPath = '${appDir.path}/myImage.png';
+    // savedImage = await File(filePath).copy(newPath);
+
+    // You can now use the 'savedImage' variable to perform further operations
+    // or store the path to retrieve it later.
+  } catch (e) {
+    print("Error taking picture: $e");
+  }
+}
